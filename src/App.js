@@ -24,7 +24,7 @@ export default function App() {
           <Subtitle>TIMER</Subtitle>
           <PlayButton>
             <PlayIcon>
-              <i class="fa fa-play" />
+              <i className="fa fa-play" />
             </PlayIcon>
           </PlayButton>
         </Wrapper>
