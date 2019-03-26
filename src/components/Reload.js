@@ -2,15 +2,15 @@ import styled from "styled-components"
 
 export default styled.div`
   position: absolute;
-  width: 27px;
-  height: 35px;
-  left: calc(50% - 27px / 2 + 2.5px);
-  top: calc(50% - 35px / 2 - 3px);
+  width: 73px;
+  height: 46px;
+  left: calc(50% - 73px / 2 - 1.5px);
+  top: calc(50% - 46px / 2 + 118px);
 
-  font-family: Font Awesome 5 Free;
+  font-family: FontAwesome;
   font-style: normal;
   font-weight: normal;
-  font-size: 27px;
+  font-size: 30px;
   line-height: normal;
   text-align: center;
 

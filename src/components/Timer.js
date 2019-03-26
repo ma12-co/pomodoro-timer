@@ -2,17 +2,19 @@ import styled from "styled-components"
 
 export default styled.div`
   position: absolute;
-  width: 27px;
-  height: 35px;
-  left: calc(50% - 27px / 2 + 2.5px);
-  top: calc(50% - 35px / 2 - 3px);
+  width: 320px;
+  height: 88px;
+  left: 0px;
+  top: 424px;
 
-  font-family: Font Awesome 5 Free;
+  font-family: Open Sans;
   font-style: normal;
-  font-weight: normal;
-  font-size: 27px;
+  font-weight: bold;
+  font-size: 80px;
   line-height: normal;
   text-align: center;
 
   color: #000000;
+
+  z-index: 10;
 `
