@@ -1,28 +1,34 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import UpperMetalBand from "./components/UpperMetalBand"
+import UpperPart from "./components/UpperPart"
+import LowerPart from "./components/LowerPart"
+import LowerMetalBand from "./components/LowerMetalBand"
+import PlayButton from "./components/PlayButton"
+import PlayIcon from "./components/PlayIcon"
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+import Wrapper from "./components/Wrapper"
+import Title from "./components/Title"
+import Subtitle from "./components/Subtitle"
+import Background from "./components/Background"
+
+export default function App() {
+  return (
+    <div className="App">
+      <Background>
+        <UpperMetalBand />
+        <UpperPart />
+        <LowerPart />
+        <LowerMetalBand />
+        <Wrapper>
+          <Title>Pomodoro</Title>
+          <Subtitle>TIMER</Subtitle>
+          <PlayButton>
+            <PlayIcon>
+              <i class="fa fa-play" />
+            </PlayIcon>
+          </PlayButton>
+        </Wrapper>
+      </Background>
+    </div>
+  )
 }
-
-export default App;
