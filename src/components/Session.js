@@ -58,7 +58,7 @@ let Time = styled.div`
   color: #000000;
 `
 
-let ArrowUp = styled.div`
+let ArrowUp = styled.button`
   position: absolute;
   left: 20%;
   right: 75%;
@@ -73,9 +73,21 @@ let ArrowUp = styled.div`
   text-align: center;
 
   color: #000000;
+
+  background: transparent;
+  border: 0px;
+  &:hover {
+    color: #970b19;
+  }
+  &:active {
+    color: red;
+  }
+  &:focus {
+    outline: 0;
+  }
 `
 
-let ArrowDown = styled.div`
+let ArrowDown = styled.button`
   position: absolute;
   left: 20%;
   right: 75%;
@@ -90,4 +102,16 @@ let ArrowDown = styled.div`
   text-align: center;
 
   color: #000000;
+
+  background: transparent;
+  border: 0px;
+  &:hover {
+    color: #970b19;
+  }
+  &:active {
+    color: red;
+  }
+  &:focus {
+    outline: 0;
+  }
 `

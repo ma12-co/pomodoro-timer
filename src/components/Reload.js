@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export default styled.div`
+export default styled.button`
   position: absolute;
   width: 73px;
   height: 46px;
@@ -15,4 +15,16 @@ export default styled.div`
   text-align: center;
 
   color: #000000;
+
+  background: transparent;
+  border: 0px;
+  &:hover {
+    color: #970b19;
+  }
+  &:active {
+    color: red;
+  }
+  &:focus {
+    outline: 0;
+  }
 `
