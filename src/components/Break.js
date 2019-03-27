@@ -1,34 +1,35 @@
 import React from "react"
 import styled from "styled-components"
 
-export default function Break() {
+export default function Break(props) {
+  let incrementBreakLength = () => {
+    props.setBreakLength(props.breakLength + 1)
+  }
+
+  let decrementBreakLength = () => {
+    props.setBreakLength(props.breakLength - 1)
+  }
+
   return (
-    <SessionLengthSelector>
-      <Title>BREAK</Title>
-      <ArrowLeft>
-        <i className="fas fa-arrow-left" />
-      </ArrowLeft>
-      <Time>5</Time>
-      <ArrowRight>
-        <i className="fas fa-arrow-right" />
-      </ArrowRight>
-    </SessionLengthSelector>
+    <React.Fragment>
+      <Title id="break-label">BREAK</Title>
+      <ArrowUp id="break-increment" onClick={incrementBreakLength}>
+        <i className="fas fa-arrow-up" />
+      </ArrowUp>
+      <Time id="break-length">{props.breakLength}</Time>
+      <ArrowDown id="break-decrement" onClick={decrementBreakLength}>
+        <i className="fas fa-arrow-down" />
+      </ArrowDown>
+    </React.Fragment>
   )
 }
 
-let SessionLengthSelector = styled.div`
-  position: absolute;
-  width: 97px;
-  height: 44px;
-  left: 202px;
-  top: 320px;
-`
 let Title = styled.div`
   position: absolute;
-  left: 0%;
-  right: 0%;
-  top: 0%;
-  bottom: 56.82%;
+  left: 62.19%;
+  right: 7.5%;
+  top: 55.63%;
+  bottom: 41.02%;
 
   font-family: Open Sans;
   font-style: normal;
@@ -42,10 +43,10 @@ let Title = styled.div`
 
 let Time = styled.div`
   position: absolute;
-  left: 36.08%;
-  right: 37.11%;
-  top: 56.82%;
-  bottom: 0%;
+  left: 73.12%;
+  right: 18.75%;
+  top: 65.85%;
+  bottom: 30.81%;
 
   font-family: Open Sans;
   font-style: normal;
@@ -57,34 +58,34 @@ let Time = styled.div`
   color: #000000;
 `
 
-let ArrowLeft = styled.div`
+let ArrowUp = styled.div`
   position: absolute;
-  left: 18.56%;
-  right: 64.95%;
-  top: 59.09%;
-  bottom: 0%;
+  left: 74.69%;
+  right: 20.31%;
+  top: 61.27%;
+  bottom: 35.56%;
 
   font-family: Font Awesome 5 Free;
   font-style: normal;
   font-weight: normal;
-  font-size: 12px;
+  font-size: 16px;
   line-height: normal;
   text-align: center;
 
   color: #000000;
 `
 
-let ArrowRight = styled.div`
+let ArrowDown = styled.div`
   position: absolute;
-  left: 63.92%;
-  right: 19.59%;
-  top: 59.09%;
-  bottom: 0%;
+  left: 74.69%;
+  right: 20.31%;
+  top: 70.77%;
+  bottom: 26.06%;
 
   font-family: Font Awesome 5 Free;
   font-style: normal;
   font-weight: normal;
-  font-size: 12px;
+  font-size: 16px;
   line-height: normal;
   text-align: center;
 

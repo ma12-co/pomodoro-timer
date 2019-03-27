@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import UpperMetalBand from "./components/UpperMetalBand"
 import UpperPart from "./components/UpperPart"
 import LowerPart from "./components/LowerPart"
@@ -16,6 +16,14 @@ import Session from "./components/Session"
 import Break from "./components/Break"
 
 export default function App() {
+  const [sessionLength, setSessionLength] = useState(25)
+  const [breakLength, setBreakLength] = useState(5)
+
+  let resetAll = () => {
+    setSessionLength(25)
+    setBreakLength(5)
+  }
+
   return (
     <div className="App">
       <Background>
@@ -26,17 +34,21 @@ export default function App() {
         <Wrapper>
           <Title>Pomodoro</Title>
           <Subtitle>TIMER</Subtitle>
-          <PlayButton>
+          <PlayButton id="start_stop">
             <PlayIcon>
               <i className="fa fa-play" />
             </PlayIcon>
           </PlayButton>
-          <Reload>
+          <Reload onClick={resetAll} id="reset">
             <i className="fas fa-sync-alt" />
           </Reload>
-          <Session />
-          <Break />
-          <Timer>25:00</Timer>
+          <Session
+            setSessionLength={setSessionLength}
+            sessionLength={sessionLength}
+          />
+          <Break setBreakLength={setBreakLength} breakLength={breakLength} />
+          <React.Fragment id="time-label" />
+          <Timer id="time-left">25:00</Timer>
         </Wrapper>
       </Background>
     </div>

@@ -4,8 +4,8 @@ export default styled.div`
   position: absolute;
   width: 73px;
   height: 46px;
-  left: calc(50% - 73px / 2 - 1.5px);
-  top: calc(50% - 46px / 2 + 118px);
+  left: calc(50% - 73px / 2 - 0.5px);
+  top: calc(50% - 46px / 2 + 102px);
 
   font-family: FontAwesome;
   font-style: normal;
