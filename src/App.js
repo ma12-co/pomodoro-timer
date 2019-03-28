@@ -16,8 +16,8 @@ import Break from "./components/Break"
 import SessionBreakIndicator from "./components/SessionBreakIndicator"
 
 export default function App() {
-  const [sessionLength, setSessionLength] = useState(1)
-  const [breakLength, setBreakLength] = useState(1)
+  const [sessionLength, setSessionLength] = useState(25)
+  const [breakLength, setBreakLength] = useState(5)
   const [timeLeft, setTimeLeft] = useState(0)
   const [timeLeftString, setTimeLeftString] = useState("")
 
