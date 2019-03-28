@@ -13,32 +13,54 @@ import Timer from "./components/Timer"
 import Reload from "./components/Reload"
 import Session from "./components/Session"
 import Break from "./components/Break"
+import SessionBreakIndicator from "./components/SessionBreakIndicator"
 
 export default function App() {
-  const [sessionLength, setSessionLength] = useState(25)
-  const [breakLength, setBreakLength] = useState(5)
+  const [sessionLength, setSessionLength] = useState(1)
+  const [breakLength, setBreakLength] = useState(1)
   const [timeLeft, setTimeLeft] = useState(0)
   const [timeLeftString, setTimeLeftString] = useState("")
-  const [isCountingDown, setIsCountingDown] = useState(false)
+
   const [isActive, setIsActive] = useState(false)
+  const [isCountingDown, setIsCountingDown] = useState(false)
+  const [isBreak, setIsBreak] = useState(false)
 
   let intervalId = useRef(null)
 
   useEffect(() => {
-    setTimeLeftString(() => parseToMinuteSeconds(timeLeft))
+    setTimeLeftString(() => convertToMinuteSeconds(timeLeft))
+    if (timeLeft === 0 && isCountingDown && !isBreak) {
+      playSound()
+      startBreak()
+    } else if (timeLeft === 0 && isCountingDown && isBreak) {
+      startSession()
+    }
   })
 
   let handlePlayPause = () => {
     if (!isCountingDown) {
       if (!isActive) {
-        setTimeLeft(sessionLength * 60 * 1000)
-        playTimer()
+        startSession()
       } else {
         playTimer()
       }
     } else if (isCountingDown) {
       pauseTimer()
     }
+  }
+
+  let startSession = () => {
+    pauseTimer()
+    setIsBreak(false)
+    setTimeLeft(sessionLength * 60000)
+    playTimer()
+  }
+
+  let startBreak = () => {
+    pauseTimer()
+    setIsBreak(true)
+    setTimeLeft(breakLength * 60000)
+    playTimer()
   }
 
   let playTimer = () => {
@@ -55,20 +77,28 @@ export default function App() {
     clearInterval(intervalId.current)
   }
 
-  let resetAll = () => {
-    setSessionLength(25)
-    setBreakLength(5)
+  let reset = alsoSessionAndBreakLength => {
+    pauseTimer()
     setIsActive(false)
     setIsCountingDown(false)
     setTimeLeft(0)
+    if (alsoSessionAndBreakLength) {
+      setSessionLength(25)
+      setBreakLength(5)
+    }
   }
 
-  let parseToMinuteSeconds = timeInMilliseconds => {
-    let minutes = Math.round(timeInMilliseconds / 60000).toString()
-    let seconds = Math.round((timeInMilliseconds % 60000) / 1000).toString()
+  let convertToMinuteSeconds = timeInMilliseconds => {
+    let minutes = Math.floor(timeInMilliseconds / 60000).toString()
+    let seconds = Math.floor((timeInMilliseconds % 60000) / 1000).toString()
     let minutesString = minutes.length === 1 ? "0" + minutes : minutes
     let secondsString = seconds.length === 1 ? "0" + seconds : seconds
     return `${minutesString}:${secondsString}`
+  }
+
+  const playSound = () => {
+    let sound = document.getElementById("beep")
+    sound.play()
   }
 
   return (
@@ -86,7 +116,7 @@ export default function App() {
             handlePlayPause={handlePlayPause}
             isCountingDown={isCountingDown}
           />
-          <Reload onClick={resetAll} id="reset">
+          <Reload onClick={() => reset(true)} id="reset">
             <i className="fas fa-sync-alt" />
           </Reload>
           <Session
@@ -94,11 +124,13 @@ export default function App() {
             sessionLength={sessionLength}
           />
           <Break setBreakLength={setBreakLength} breakLength={breakLength} />
-          <span id="time-label">
-            <Timer id="time-left">{timeLeftString}</Timer>
-          </span>
+          <SessionBreakIndicator id="time-label">
+            {isBreak ? "BREAK" : isActive ? "SESSION" : ""}
+          </SessionBreakIndicator>
+          <Timer id="time-left">{timeLeftString}</Timer>
         </Wrapper>
       </Background>
+      <audio preload="auto" id="beep" src="https://goo.gl/65cBl1" />
     </div>
   )
 }

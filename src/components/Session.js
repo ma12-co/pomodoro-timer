@@ -64,8 +64,8 @@ let Time = styled.div`
 
 let ArrowUp = styled.button`
   position: absolute;
-  left: 20%;
-  right: 75%;
+  left: 18.44%;
+  right: 73.44%;
   top: 61.27%;
   bottom: 35.56%;
 
@@ -93,8 +93,8 @@ let ArrowUp = styled.button`
 
 let ArrowDown = styled.button`
   position: absolute;
-  left: 20%;
-  right: 75%;
+  left: 18.44%;
+  right: 73.44%;
   top: 70.77%;
   bottom: 26.06%;
 
