@@ -3,11 +3,15 @@ import styled from "styled-components"
 
 export default function Session(props) {
   let incrementSessionLength = () => {
-    props.setSessionLength(props.sessionLength + 1)
+    if (props.sessionLength < 60) {
+      props.setSessionLength(props.sessionLength + 1)
+    } else return
   }
 
   let decrementSessionLength = () => {
-    props.setSessionLength(props.sessionLength - 1)
+    if (props.sessionLength > 1) {
+      props.setSessionLength(props.sessionLength - 1)
+    } else return
   }
 
   return (

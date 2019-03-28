@@ -1,6 +1,19 @@
+import React from "react"
 import styled from "styled-components"
 
-export default styled.button`
+export default function PlayButton(props) {
+  return (
+    <PlayPause onClick={props.handlePlayPause}>
+      {props.isCountingDown ? (
+        <i className="fa fa-pause" />
+      ) : (
+        <i className="fa fa-play" />
+      )}
+    </PlayPause>
+  )
+}
+
+let PlayPause = styled.button`
   position: absolute;
   width: 85px;
   height: 85px;

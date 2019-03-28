@@ -3,11 +3,15 @@ import styled from "styled-components"
 
 export default function Break(props) {
   let incrementBreakLength = () => {
-    props.setBreakLength(props.breakLength + 1)
+    if (props.breakLength < 60) {
+      props.setBreakLength(props.breakLength + 1)
+    } else return
   }
 
   let decrementBreakLength = () => {
-    props.setBreakLength(props.breakLength - 1)
+    if (props.breakLength > 1) {
+      props.setBreakLength(props.breakLength - 1)
+    } else return
   }
 
   return (
