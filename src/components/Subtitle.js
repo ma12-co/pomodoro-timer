@@ -7,7 +7,6 @@ export default styled.div`
   left: calc(50% - 178px / 2);
   top: calc(50% - 30px / 2 - 113px);
 
-  font-family: Open Sans;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
