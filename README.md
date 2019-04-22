@@ -1,3 +1,17 @@
+# Pomodoro Timer
+
+A pomodoro timer built with React and styled-components. 
+
+![pomodoro timer gif](./src/media/pomodoro.gif)
+
+The design is inspired to the famous Andy Warhol's tomato can
+
+![pomodoro timer design](./src/media/design.png)
+
+
+### You can check out the app [here](https://r-q-m.herokuapp.com/).
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
