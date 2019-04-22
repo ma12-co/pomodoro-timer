@@ -9,7 +9,7 @@ The design is inspired to the famous Andy Warhol's tomato can
 ![pomodoro timer design](./src/media/design.png)
 
 
-### You can check out the app [here](https://r-q-m.herokuapp.com/).
+### You can check out the app [here](https://ma12-co.github.io/pomodoro-timer/).
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
