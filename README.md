@@ -6,7 +6,7 @@ A pomodoro timer built with React and styled-components.
 
 The design is inspired to the famous Andy Warhol's tomato can
 
-![pomodoro timer design](./src/media/design.png)
+![pomodoro timer design](./src/media/design.PNG)
 
 
 ### You can check out the app [here](https://ma12-co.github.io/pomodoro-timer/).
